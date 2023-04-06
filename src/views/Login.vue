@@ -70,6 +70,7 @@
         <img src="../assets/imagens/logo.svg" alt="Logo Devagram" class="logo"/>
         <form>
             <p v-if="erro" class="error">{{erro}}</p>
+            <p v-if="$route.query.cadastroComSucesso" class="sucesso">Cadastro efetuado com sucesso, porfavor faça o login</p>
 
             <InputPublico :icone="iconeLogin" alt="Insira o Login" tipo="text" placeholder="Email" :modelValue="login" @setInput="setLogin"/>
 
