@@ -4,15 +4,17 @@
     import iconeLogin from '../assets/imagens/login.svg'
     import iconeSenha from '../assets/imagens/senha.svg'
     import { LoginServices } from '@/services/LoginServices';
+    import router from '../router'
 
-    const loginServices = new LoginServices()
+    const loginService = new LoginServices()
 
     export default defineComponent({
 
         setup(){
             return {
                 iconeLogin,
-                iconeSenha
+                iconeSenha,
+                loginService
             }
         },
 
@@ -35,7 +37,8 @@
 
                     }
                         this.loading = true;
-                        await loginServices.login({login: this.login, senha: this.senha})
+                        await loginService.login({login: this.login, senha: this.senha})
+                        router.push({name: 'home'})
                 } catch (e: any) {
                     console.log(e)
                     if(e?.response?.data?.erro){
@@ -75,7 +78,7 @@
             <button @click.enter.prevent="efetuarLogin" :disabled="loading">{{buttonText}}</button>
             <div class="link">
                 <p>Não possui uma conta?</p>
-                <a>Faça seu cadastro agora!</a>
+                <RouterLink to="/cadastro">Faça seu cadastro agora!</RouterLink>
             </div>
         </form>
     </div>
