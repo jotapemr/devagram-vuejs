@@ -47,8 +47,8 @@
 
         <div class="rodape">
             <div class="acoes">
-                <img :scr="obterIconeCurtir" alt="Icone curtir"/>
-                <img src="../assets/imagens/comentario-inativo.svg" alt="Icone comentar"/>
+                <img :scr="obterIconeCurtir" alt="Icone curtir" class="feedIcone"/>
+                <img src="../assets/imagens/comentario-inativo.svg" alt="Icone comentar" class="feedIcone"/>
                 <span class="curtidas">
                     Curtido por <strong>{{ post?.likes.length }}</strong> pessoa{{ post?.likes?.length > 1 ? 's' : '' }}
                 </span>
@@ -75,4 +75,4 @@
     </div>
 </template>
 
-<!-- <style lang="scss" src="@/assets/styles/feed.scss"/> -->
+<style lang="scss" src="@/assets/styles/postagem.scss"/>
