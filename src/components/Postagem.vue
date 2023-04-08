@@ -36,7 +36,7 @@
     methods: {
 
         navegarParaPerfil() {
-            router.push("/usuario/" + this.post?.idUsuario)
+            router.push("/usuario/" + this.post?.idUsuario);
         },
 
         async togglCurtir(){

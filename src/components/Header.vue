@@ -7,6 +7,9 @@
     const usuariosServices = new UsuarioServices()
 
     export default defineComponent({
+    props:{
+        hide : Boolean,
+    },
     data() {
         return {
             resultado: [] as any,
@@ -47,7 +50,7 @@
 </script>
 
 <template>
-    <header class="container-header">
+    <header class="container-header" :class="{hide: hide}">
         <div class="principal">
             <img src="../assets/imagens/logo-horizontal.svg" alt="logo devagram"/>
             <div class="group">
