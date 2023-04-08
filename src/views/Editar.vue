@@ -6,11 +6,12 @@ import { UsuarioServices } from '@/services/UsuarioServices';
 import HeaderAcoes from '../components/HeaderAcoes.vue';
 import Avatar from '../components/Avatar.vue';
 import router from '@/router';
+import Loading from 'vue3-loading-overlay';
 
 const usuarioServices = new UsuarioServices();
 
 export default defineComponent({
-    components: { Header, Footer, HeaderAcoes, Avatar },
+    components: { Header, Footer, HeaderAcoes, Avatar, Loading },
     data() {
         return {
             nome: localStorage.getItem('nome') as string,
@@ -51,6 +52,7 @@ export default defineComponent({
                 if(!this.nome && this.imagem.arquivo){
                     return;
                 }
+                
                 this.loading = true;
                 const requisicaoBody = new FormData();
                 if(this.nome){
@@ -84,6 +86,7 @@ export default defineComponent({
 });
 </script>
 <template>
+    <Loading :active="loading" :can-cancel="false" color="#5E49ff" :is-full-page="true"/>
     <Header :hide="true" />
     <div class="container-editar" v-if="!loading">
         <HeaderAcoes :showLeft="true" :showRight="true" 

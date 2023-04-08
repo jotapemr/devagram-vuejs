@@ -5,22 +5,25 @@
     import {FeedServices} from '../services/FeedServices'
     import Feed from '../components/Feed.vue'
     import router from '@/router';
-import HeaderPerfil from '@/components/HeaderPerfil.vue';
-import { UsuarioServices } from '@/services/UsuarioServices';
+    import HeaderPerfil from '@/components/HeaderPerfil.vue';
+    import { UsuarioServices } from '@/services/UsuarioServices';
+    import Loading from 'vue3-loading-overlay';
  
     const feedServices = new FeedServices()
     const usuarioServices = new UsuarioServices()
 
     export default defineComponent({
-        components: { Header, Footer, Feed, HeaderPerfil },
+        components: { Header, Footer, Feed, HeaderPerfil, Loading },
         data(){
             return{
                 posts: [],
-                usuario: {} as any
+                usuario: {} as any,
+                loading: false
             }
         },
         async mounted() {
         try {
+            this.loading = true
             const loggedId = localStorage.getItem("_id");
             const id = loggedId as String;
             const resultUsuario = await usuarioServices.buscarDadosPorId()
@@ -41,6 +44,7 @@ import { UsuarioServices } from '@/services/UsuarioServices';
         } catch (e) {
             console.log(e);
         }
+        this.loading = false
     }
 
     })
@@ -48,6 +52,7 @@ import { UsuarioServices } from '@/services/UsuarioServices';
 
 
 <template>
+    <Loading :active="loading" :can-cancel="false" color="#5E49ff" :is-full-page="true"/>
     <Header :hide="true" />
     <HeaderPerfil :usuario="usuario" :showLeft="false" :showRight="true" :isRightIcon="true" :title="usuario?.nome" v-if="usuario?._id"/>
     <Feed :posts="posts" :temCabecalho="true" v-if="posts && posts.length > 0"/>
