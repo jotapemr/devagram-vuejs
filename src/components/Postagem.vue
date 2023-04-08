@@ -1,11 +1,13 @@
 <script lang="ts">
     import { defineComponent } from 'vue';
     import Avatar from './Avatar.vue';
+
     import imgCurtir from '../assets/imagens/curtir.svg';
     import imgCurtiu from '../assets/imagens/curtiu.svg';
     import imgComentario from '../assets/imagens/comentario-inativo.svg';
     import imgComentarioAtivo from '../assets/imagens/comentario-ativo.svg';
     import { FeedServices } from '@/services/FeedServices';
+    import router from '@/router';
 
     const feedServices = new FeedServices();
     const MAX_DESCRICAO = 90;
@@ -34,6 +36,7 @@
     methods: {
 
         navegarParaPerfil() {
+            router.push("/usuario/" + this.post?.idUsuario)
         },
 
         async togglCurtir(){
@@ -83,7 +86,7 @@
     components: { Avatar },
     computed: {
         obterIconeCurtir(){
-            if(this.post?.likes && this.post?.likes.findIndex((e : String) => e === this.loggedUserId) !=-1){
+            if(this.post?.likes && this.post?.likes.findIndex((e : String) => e === this.loggedUserId) != -1){
                 return imgCurtiu
             }
             return imgCurtir
@@ -117,7 +120,7 @@
 
         <div class="rodape">
             <div class="acoes">
-                <img :scr="obterIconeCurtir" alt="Icone curtir" class="feedIcone" @click="togglCurtir"/>
+                <img :src="obterIconeCurtir" alt="Icone curtir" class="feedIcone" @click="togglCurtir"/>
                 <img :src="obterIconeComentario" alt="Icone comentar" class="feedIcone" @click="togglComentario"/>
                 <span class="curtidas">
                     Curtido por <strong>{{ post?.likes.length }}</strong> pessoa{{ post?.likes?.length > 1 ? 's' : '' }}

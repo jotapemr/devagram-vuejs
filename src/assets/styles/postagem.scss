@@ -1,8 +1,8 @@
-@import './variaveis.scss';
+@import "./variaveis.scss";
 
-.container-postagem{
+.container-postagem {
     margin-top: 10px;
-    .avatar{
+    .avatar {
         height: 32px;
         width: 32px;
         margin-right: 8px;
@@ -13,7 +13,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: start;
-        padding: 0px 12px;
+        padding: 0 12px;
         margin-bottom: 8px;
 
         strong{
@@ -39,7 +39,7 @@
     .rodape{
         padding: 5px 16px;
 
-        .descricao{
+        .descricao {
             strong{
                 font-size: 12px;
                 font-family: $fontBold;
@@ -58,7 +58,6 @@
                     text-decoration: underline;
                     color: $corPrimaria3;
                 }
-
             }
         }
 
@@ -76,10 +75,9 @@
 
             span{
                 margin-right: 5px !important;
-
             }
 
-            .curtidas{
+            .curtidas {
                 font-family: $fontLight;
                 font-size: 10px;
                 color: $cinza4;
@@ -92,25 +90,25 @@
             }
         }
 
-        .comentarios{
+        .comentarios {
             max-height: 100px;
             overflow-y: auto;
 
-            div{
+            div {
                 height: 20px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: start;
 
-                strong{
+                strong {
                     margin-right: 5px;
                 }
             }
         }
     }
 
-    .container-comentario {
+    .container-comentario{
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -133,9 +131,10 @@
             display: none;
         }
     }
+    
 
     @media screen and (min-width: $desktopBreakpoint) {
-        .cabecalho{
+        .cabecalho {
             cursor: pointer;
 
             strong{
@@ -143,7 +142,7 @@
             }
         }
 
-        .avatar{
+        .avatar {
             width: 42px;
             height: 42px;
         }
@@ -159,9 +158,9 @@
 
         .rodape{
             .acoes{
-
                 .feedIcone{
                     width: 32px;
+                    height: 32px;
                 }
 
                 .curtidas{
@@ -180,7 +179,6 @@
                         font-size: 16px;
                     }
                 }
-                
                 strong{
                     font-size: 16px;
                 }
@@ -190,7 +188,6 @@
                 p{
                     font-size: 16px;
                 }
-                
                 strong{
                     font-size: 16px;
                 }
@@ -206,7 +203,7 @@
                 font-size: 16px;
             }
 
-            button{
+            button {
                 display: block;
                 background-color: transparent;
                 color: $corPrimaria;

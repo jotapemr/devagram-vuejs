@@ -16,4 +16,4 @@ import Postagem from './Postagem.vue'
     </div>
 </template>
 
-<!-- <style lang="scss" src="@/assets/styles/feed.scss"/> -->
+<style lang="scss" src="@/assets/styles/feed.scss"/>
