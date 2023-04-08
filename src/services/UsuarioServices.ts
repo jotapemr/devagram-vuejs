@@ -15,4 +15,8 @@ export class UsuarioServices extends HttpApiService{
     async togglFollow(id: String){
         return await this.put('/seguir?id='+id)
     }
+
+    async atualizar(body: any){
+        await this.put('/usuario', body)
+    }
 }

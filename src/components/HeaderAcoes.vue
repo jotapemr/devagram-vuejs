@@ -32,7 +32,7 @@
         <span v-else-if="showLeft && !isLeftIcon">Cancelar</span>
         <strong>{{ title }}</strong>
         <img src="../assets/imagens/sair.svg" alt="sair" v-if="showRight && isRightIcon" @click="logOut"/>
-        <span class="principal" v-else-if="showRight && !isRightIcon">{{ rightLabel }}</span>
+        <span class="principal" v-else-if="showRight && !isRightIcon" @click="$emit('acoesCallback')">{{ rightLabel }}</span>
     </div>
 </template>
 
