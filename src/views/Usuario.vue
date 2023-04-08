@@ -65,6 +65,7 @@ import HeaderPerfil from '@/components/HeaderPerfil.vue';
             :showLeft="getShowLeft"
             :isLeftIcon="true"
             :showRight="false"
+            v-if="usuario?._id"
     />
     <Feed :posts="posts" :temCabecalho="true"/>
     <Footer />
