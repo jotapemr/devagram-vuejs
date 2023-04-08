@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { defineComponent, onMounted } from 'vue';
+    import { defineComponent } from 'vue';
     import Header from '../components/Header.vue'
     import Footer from '../components/Footer.vue';
     import {FeedServices} from '../services/FeedServices'
-    import Feed from '../components/Feed.vue'
+    import Feed from '../components/Feed.vue';
  
     const feedServices = new FeedServices()
 
